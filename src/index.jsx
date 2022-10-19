@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import ToppingsSelect from './components/ToppingsSelect';
 import './style.css';
 import { PrefsContext, usePrefs } from './prefs-context';
+import { Header } from './components/Header';
 
 const toppings = [
   {
@@ -80,7 +81,15 @@ const toppings = [
 ];
 
 const App = () => {
-  const [veganOnly, setVegaOnly] = useState(true);
+  const [veganOnly, setVeganOnly] = useState(true);
+
+  const veganChange = () => {
+    toppings.forEach((topping) => {
+      if (topping.vegan === true) {
+        setVeganOnly(veganOnly);
+      }
+    });
+  };
 
   return (
     <PrefsContext.Provider value={veganOnly}>
@@ -90,6 +99,7 @@ const App = () => {
           <h1>Build your own pizza</h1>
         </header>
         <main>
+          <Header veganChange={veganChange} />
           <ToppingsSelect toppings={toppings} />
         </main>
       </div>
