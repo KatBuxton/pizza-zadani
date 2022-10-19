@@ -84,11 +84,8 @@ const App = () => {
   const [veganOnly, setVeganOnly] = useState(true);
 
   const veganChange = () => {
-    toppings.forEach((topping) => {
-      if (topping.vegan === true) {
-        setVeganOnly(veganOnly);
-      }
-    });
+    setVeganOnly(!veganOnly);
+    console.log(veganOnly);
   };
 
   return (

@@ -3,7 +3,6 @@ import React from 'react';
 export const Header = ({ veganChange }) => {
   const handleChange = () => {
     veganChange();
-    console.log('vegan change');
   };
 
   return (
