@@ -3,7 +3,7 @@ import './style.css';
 
 const Check = ({ checked, onChange }) => {
   const handleChange = () => {
-    onChange();
+    onChange(!checked);
   };
 
   return (

@@ -17,7 +17,17 @@ const ToppingsSelect = ({ toppings }) => {
   checked.forEach((topping) => (toppingsCount += topping.selected));
 
   let toppingsPrice = 0;
-  checked.forEach((topping) => (toppingsPrice += topping.price));
+  checked.forEach((topping) => {
+    if (topping.selected === true) {
+      toppingsPrice += topping.price;
+    }
+  });
+
+  // toppingsPrice = checked.reduce((total, currentValue) => {
+  //   return total + currentValue.price;
+  // }, 0);
+
+  toppingsPrice = toppingsPrice.toFixed(2).replace(/[.,]0$/, '');
 
   return (
     <>
