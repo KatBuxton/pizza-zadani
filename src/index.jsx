@@ -81,11 +81,10 @@ const toppings = [
 ];
 
 const App = () => {
-  const [veganOnly, setVeganOnly] = useState(true);
+  const [veganOnly, setVeganOnly] = useState(false);
 
   const veganChange = () => {
     setVeganOnly(!veganOnly);
-    console.log(veganOnly);
   };
 
   return (
@@ -96,7 +95,7 @@ const App = () => {
           <h1>Build your own pizza</h1>
         </header>
         <main>
-          <Header veganChange={veganChange} />
+          <Header veganChange={veganChange} veganOnly={veganOnly} />
           <ToppingsSelect toppings={toppings} />
         </main>
       </div>

@@ -3,7 +3,7 @@ import './style.css';
 import { usePrefs } from '../../prefs-context';
 
 const Check = ({ checked, vegan, onChange }) => {
-  const { veganOnly } = usePrefs();
+  const veganOnly = usePrefs();
 
   const handleChange = () => {
     onChange(!checked);
@@ -11,8 +11,9 @@ const Check = ({ checked, vegan, onChange }) => {
 
   return veganOnly ? (
     <button
-      className={vegan ? 'check--disabled' : 'check'}
+      className={!vegan ? 'check check--disabled' : 'check'}
       onClick={handleChange}
+      disabled={!vegan}
     >
       {checked ? '✓' : ''}
     </button>
